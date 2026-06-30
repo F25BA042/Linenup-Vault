@@ -20,21 +20,16 @@ export function EmbedPlayer({ url }: { url: string }) {
   }
 
   if (platform === 'tiktok') {
-    return (
-      <div className="flex flex-col items-center justify-center h-full gap-3 p-6 text-center bg-[#0a1520]">
-        <p className="text-sm text-[#ece8e1]">
-          TikTokはこの画面では再生できません
-        </p>
-        <a
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className="bg-[#ff4655] hover:bg-[#e03040] text-white text-sm font-bold px-4 py-2 rounded"
-        >
-          TikTokで開く ↗
-        </a>
-      </div>
-    );
+    const id = getTikTokId(url)
+    if (id) {
+      return (
+        <iframe
+          src={`https://www.tiktok.com/embed/v2/${id}`}
+          className="w-full h-full"
+          allowFullScreen
+        />
+      )
+    }
   }
 
   return (
