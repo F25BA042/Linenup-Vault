@@ -20,21 +20,12 @@ export function EmbedPlayer({ url }: { url: string }) {
   }
 
   if (platform === 'tiktok') {
-    const id = getTikTokId(url)
-    if (id) {
-      return (
-        <div className="w-full h-full overflow-y-auto bg-[#0a1520] flex items-center justify-center">
-          <blockquote
-            className="tiktok-embed"
-            cite={url}
-            data-video-id={id}
-            style={{ maxWidth: '325px', minWidth: '280px' }}
-          >
-            <section></section>
-          </blockquote>
-        </div>
-      )
-    }
+    return (
+      <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6 text-center bg-[#0a1520]">
+        <p className="text-sm text-[#ece8e1]">TikTokはこの画面では再生できません</p>
+        <a href={url} target="_blank" rel="noreferrer" className="bg-[#ff4655] hover:bg-[#e03040] text-white text-sm font-bold px-4 py-2 rounded">TikTokで開く ↗</a>
+      </div>
+    )
   }
 
   return (
