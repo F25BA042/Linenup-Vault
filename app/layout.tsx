@@ -31,7 +31,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </body>
     </html>
   );
 }

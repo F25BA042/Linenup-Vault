@@ -23,11 +23,16 @@ export function EmbedPlayer({ url }: { url: string }) {
     const id = getTikTokId(url)
     if (id) {
       return (
-        <iframe
-          src={`https://www.tiktok.com/embed/v2/${id}`}
-          className="w-full h-full"
-          allowFullScreen
-        />
+        <div className="w-full h-full overflow-y-auto bg-[#0a1520] flex items-center justify-center">
+          <blockquote
+            className="tiktok-embed"
+            cite={url}
+            data-video-id={id}
+            style={{ maxWidth: '325px', minWidth: '280px' }}
+          >
+            <section></section>
+          </blockquote>
+        </div>
       )
     }
   }
