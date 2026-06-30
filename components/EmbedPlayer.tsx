@@ -20,6 +20,17 @@ export function EmbedPlayer({ url }: { url: string }) {
   }
 
   if (platform === 'tiktok') {
+    const id = getTikTokId(url)
+    if (id) {
+      return (
+        <iframe
+          src={`https://www.tiktok.com/embed/v2/${id}?autoplay=1`}
+          className="w-full h-full"
+          allowFullScreen
+          allow="autoplay; encrypted-media; fullscreen"
+        />
+      )
+    }
     return (
       <div className="w-full h-full flex flex-col items-center justify-center gap-3 p-6 text-center bg-[#0a1520]">
         <p className="text-sm text-[#ece8e1]">TikTokはこの画面では再生できません</p>
